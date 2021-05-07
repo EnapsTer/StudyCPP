@@ -1,8 +1,7 @@
 #include <iostream>
-#include <PhoneBook.hpp>
+#include "PhoneBook.hpp"
 
-Contact input_contact()
-{
+Contact input_contact() {
   Contact contact;
   std::string string;
 
@@ -55,17 +54,15 @@ Contact input_contact()
   return contact;
 }
 
-void search_command(PhoneBook &phone_book)
-{
+void search_command(PhoneBook &phone_book) {
   std::string id;
 
-  if (phone_book.GetContactCount() == 0)
-    std::cout << "no contacts in the table" << std::endl;
-  else
-  {
-	phone_book.ShowAllContacts();
-	std::cin >> id;
-	phone_book.ShowContact(id);
+  if (phone_book.GetContactCount() == 0) {
+    std::cout << std::endl <<"no contacts in the table" << std::endl << std::endl;
+  } else {
+    phone_book.ShowAllContacts();
+    std::cin >> id;
+    phone_book.ShowContact(id);
   }
 }
 
@@ -73,23 +70,23 @@ int main() {
   PhoneBook phone_book;
   std::string command;
 
-  while (1)
-  {
+  while (1) {
     std::cin >> command;
 
-    if (command == "ADD")
-	{
+    if (std::cin.eof())
+      break;
+    if (command == "ADD") {
       if (phone_book.IsFull())
-		std::cout << "Can't add more than 8 contacts" << std::endl;
+        std::cout << "Can't add more than 8 contacts" << std::endl;
       else
-		phone_book.AddContact(input_contact());
-	}
-    else if (command == "SEARCH")
-	  search_command(phone_book);
-    else if (command == "EXIT")
-	  break;
-    else if (command != "\n")
+        phone_book.AddContact(input_contact());
+    } else if (command == "SEARCH") {
+      search_command(phone_book);
+    } else if (command == "EXIT") {
+      break;
+    } else if (command != "\n") {
       std::cout << "wrong command" << std::endl;
+    }
   }
   return 0;
 }

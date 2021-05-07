@@ -95,12 +95,10 @@ void Contact::SetDarkestSecret(const std::string &darkest_secret) {
 }
 
 std::string Contact::GetSubContactStr(const std::string& str) {
-  if (str.length() > 9) {
-	return str.substr(0, 9) + ".";
-  }
-  else {
-	return str;
-  }
+  if (str.length() > 9)
+    return str.substr(0, 9) + ".";
+  else
+    return str;
 }
 
 void Contact::ShowContact() {

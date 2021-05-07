@@ -4,15 +4,16 @@
 
 #ifndef PHONEBOOK_HPP
 #define PHONEBOOK_HPP
+#include <string>
 #include "Contact.hpp"
 
 #define MAX_CONTACTS 8
 
-class PhoneBook
-{
+class PhoneBook {
  private:
   Contact contacts_[MAX_CONTACTS];
   int contact_count_;
+
  public:
   PhoneBook();
   int  GetContactCount() const;

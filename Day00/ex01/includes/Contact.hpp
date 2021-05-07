@@ -6,8 +6,7 @@
 #define CONTACT_HPP
 
 #include <string>
-class Contact
-{
+class Contact {
  private:
   std::string name_;
   std::string last_name_;
@@ -20,6 +19,7 @@ class Contact
   std::string favorite_meal_;
   std::string underwear_color_;
   std::string darkest_secret_;
+
  public:
   static std::string GetSubContactStr(const std::string& str);
   const std::string &GetName() const;
