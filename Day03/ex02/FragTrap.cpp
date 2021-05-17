@@ -53,7 +53,7 @@ void FragTrap::RangedAttack(const std::string &target) {
 void FragTrap::TakeDamage(unsigned int amount) {
   std::cout << "FR4G-TP " << name_ << " takes " << amount
 			<< " points of damage!" << std::endl;
-  SetHitPoints(hit_points_ + static_cast<int>(amount));
+  SetHitPoints(hit_points_ + armor_damage_reduction_ - static_cast<int>(amount));
 }
 
 void FragTrap::BeRepaired(unsigned int amount) {

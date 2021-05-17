@@ -73,5 +73,9 @@ void ScavTrap::ChallengeNewcomer() {
   	"Play paper scissors with me"
   };
 
-  std::cout << attacks[rand() % CHALLENGES_COUNT] << std::endl;
+  if (energy_points_ == 0)
+    std::cout << "No energy((" << std::endl;
+  else
+    std::cout << attacks[rand() % CHALLENGES_COUNT] << std::endl;
+  SetEnergyPoints(energy_points_ - 25);
 }

@@ -3,9 +3,7 @@
 //
 
 #include "ScavTrap.hpp"
-
 #include <iostream>
-#include "ScavTrap.hpp"
 
 ScavTrap::ScavTrap(const std::string &name) : ClapTrap(name) {
   std::cout << name <<": SC4V-TP constructor" << std::endl;
@@ -73,5 +71,9 @@ void ScavTrap::ChallengeNewcomer() {
   	"Play paper scissors with me"
   };
 
-  std::cout << attacks[rand() % CHALLENGES_COUNT] << std::endl;
+  if (energy_points_ < 25)
+	std::cout << "No energy(((" << std::endl;
+  else
+	std::cout << attacks[rand() % CHALLENGES_COUNT] << std::endl;
+  SetEnergyPoints(energy_points_ - 25);
 }

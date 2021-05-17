@@ -65,9 +65,9 @@ void ClapTrap::TakeDamage(unsigned int amount) {
 void ClapTrap::BeRepaired(unsigned int amount) {
   std::cout << "CL4P-TP " << name_ << " restored " << amount
 			<< " hit points" << std::endl;
-  SetEnergyPoints(
-  	energy_points_ - static_cast<int>(amount)
-  	);
+  SetHitPoints(
+	  hit_points_ + static_cast<int>(amount)
+  );
 }
 
 const std::string &ClapTrap::GetName() const {

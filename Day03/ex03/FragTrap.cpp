@@ -53,7 +53,7 @@ void FragTrap::RangedAttack(const std::string &target) {
 void FragTrap::TakeDamage(unsigned int amount) {
   std::cout << "FR4G-TP " << name_ << " takes " << amount
 			<< " points of damage!" << std::endl;
-  SetHitPoints(hit_points_ + static_cast<int>(amount));
+  SetHitPoints(hit_points_ + armor_damage_reduction_ - static_cast<int>(amount));
 }
 
 void FragTrap::BeRepaired(unsigned int amount) {
@@ -70,11 +70,9 @@ void FragTrap::VaulthunterDotExe(const std::string &target) {
       "Loading combat packages!"
   };
 
-  if (energy_points_ - 25 < 0) {
-    energy_points_ = 0;
+  if (energy_points_ < 25)
     std::cout << "No energy(((" << std::endl;
-  } else {
-	energy_points_ -= 25;
+  else
     std::cout << attacks[rand() % ATTACKS_COUNT] << std::endl;
-  }
+  SetEnergyPoints(energy_points_ - 25);
 }

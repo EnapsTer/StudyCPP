@@ -20,6 +20,7 @@ class FragTrap {
   int ranged_attack_damage_;
   int armor_damage_reduction_;
  public:
+  void SetHitPoints(int hit_points);
   FragTrap(std::string const &name);
   FragTrap(FragTrap const &other);
   FragTrap &operator=(FragTrap const &other);
@@ -28,6 +29,7 @@ class FragTrap {
   int GetMeleeAttackDamage() const;
   int GetRangedAttackDamage() const;
   int GetHitPoints() const;
+  void SetEnergyPoints(int energy_points);
   int GetEnergyPoints() const;
   void RangedAttack(std::string const &target);
   void MeleeAttack(std::string const &target);

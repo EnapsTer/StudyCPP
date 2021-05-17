@@ -42,9 +42,7 @@ int main() {
   aboba.VaulthunterDotExe(ladoba.GetName());
   ladoba.TakeDamage(50);
   aboba.VaulthunterDotExe(ladoba.GetName());
-  ladoba.TakeDamage(50);
   aboba.VaulthunterDotExe(ladoba.GetName());
-  ladoba.TakeDamage(50);
   std::cout << ladoba.GetName() << ": Ohhhh myyyyyy, that's hurt" << std::endl;
   std::cout << ladoba.GetName() << " hit points " << ladoba.GetHitPoints()
 			<< std::endl;

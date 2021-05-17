@@ -43,9 +43,7 @@ int main() {
   aboba.VaulthunterDotExe(garik.GetName());
   garik.TakeDamage(50);
   aboba.VaulthunterDotExe(garik.GetName());
-  garik.TakeDamage(50);
   aboba.VaulthunterDotExe(garik.GetName());
-  garik.TakeDamage(50);
   std::cout << garik.GetName() << ": Ohhhh myyyyyy, that's hurt,"
 	  "okay, okay you win, lets do some challenges" << std::endl;
   std::cout << garik.GetName() << " hit points " << garik.GetHitPoints()
@@ -53,5 +51,8 @@ int main() {
   garik.BeRepaired(10);
   std::cout << garik.GetName() << " hit points " << garik.GetHitPoints()
 			<< std::endl;
+  garik.ChallengeNewcomer();
+  garik.ChallengeNewcomer();
+  garik.ChallengeNewcomer();
   garik.ChallengeNewcomer();
 }

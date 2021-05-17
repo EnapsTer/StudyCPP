@@ -33,6 +33,8 @@ class ScavTrap {
   void MeleeAttack(std::string const &target);
   void TakeDamage(unsigned int amount);
   void BeRepaired(unsigned int amount);
+  void SetHitPoints(int hit_points);
+  void SetEnergyPoints(int energy_points);
   void ChallengeNewcomer();
 };
 
