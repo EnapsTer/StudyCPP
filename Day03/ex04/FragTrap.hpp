@@ -29,7 +29,7 @@ class FragTrap : virtual public ClapTrap{
   void MeleeAttack(std::string const &target);
   void TakeDamage(unsigned int amount);
   void BeRepaired(unsigned int amount);
-  void VaulthunterDotExe(std::string const & target);
+  virtual void VaulthunterDotExe(std::string const & target);
 
   const std::string &GetName() const;
   int GetMeleeAttackDamage() const;

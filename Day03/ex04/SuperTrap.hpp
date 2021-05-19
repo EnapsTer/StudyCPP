@@ -42,6 +42,11 @@ class SuperTrap : virtual public FragTrap, virtual public NinjaTrap{
   int GetArmorDamageReduction() const;
   void SetHitPoints(int hit_points);
   void SetEnergyPoints(int energy_points);
+  void NinjaShoebox(const ClapTrap &clap_trap);
+  void NinjaShoebox(const ScavTrap &scav_trap);
+  void NinjaShoebox(const FragTrap &frag_trap);
+  void NinjaShoebox(const NinjaTrap &ninja_trap);
+  void VaulthunterDotExe(std::string const & target);
 };
 
 #endif

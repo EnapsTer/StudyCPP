@@ -22,6 +22,7 @@ void print_trap(const ClapTrap &object) {
 }
 
 int main() {
+  srand(time(0));
   SuperTrap super_trap("Deniska");
   FragTrap frag_trap("Stasik");
   NinjaTrap ninja_trap("Oleg");
@@ -41,5 +42,5 @@ int main() {
   print_trap(super_trap);
   super_trap.VaulthunterDotExe(frag_trap.GetName());
   super_trap.NinjaShoebox(ninja_trap);
-  print_trap(super_trap);
+  print_trap(super_trap); // TODO global tests
 }

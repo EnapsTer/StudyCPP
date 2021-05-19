@@ -121,3 +121,50 @@ void SuperTrap::SetEnergyPoints(int energy_points) {
   else
 	energy_points_ = energy_points;
 }
+
+void SuperTrap::VaulthunterDotExe(const std::string &target) {
+  char attacks[ATTACKS_COUNT][50] = {
+	  "Freeze! I don't know why I said that.", "Eat bomb, baddie!",
+	  "F to the R to the 4 to the G to the WHAAT!",
+	  "I'm pulling tricks outta my hat!",
+	  "Loading combat packages!"
+  };
+
+  if (energy_points_ < 25)
+	std::cout << "No energy(((" << std::endl;
+  else
+	std::cout << attacks[rand() % ATTACKS_COUNT] << std::endl;
+  SetEnergyPoints(energy_points_ - 25);
+}
+
+void SuperTrap::NinjaShoebox(const ClapTrap &clap_trap) {
+  if (energy_points_ < 25)
+	std::cout << "No energy(((" << std::endl;
+  else
+	std::cout << "attack to CL4P-TP " << clap_trap.GetName() << std::endl;
+  SetEnergyPoints(energy_points_ - 25);
+}
+
+void SuperTrap::NinjaShoebox(const ScavTrap &scav_trap) {
+  if (energy_points_ < 25)
+	std::cout << "No energy(((" << std::endl;
+  else
+	std::cout << "attack to CL4P-TP " << scav_trap.GetName() << std::endl;
+  SetEnergyPoints(energy_points_ - 25);
+}
+
+void SuperTrap::NinjaShoebox(const FragTrap &frag_trap) {
+  if (energy_points_ < 25)
+	std::cout << "No energy(((" << std::endl;
+  else
+	std::cout << "attack to CL4P-TP " << frag_trap.GetName() << std::endl;
+  SetEnergyPoints(energy_points_ - 25);
+}
+
+void SuperTrap::NinjaShoebox(const NinjaTrap &ninja_trap) {
+  if (energy_points_ < 25)
+	std::cout << "No energy(((" << std::endl;
+  else
+	std::cout << "attack to CL4P-TP " << ninja_trap.GetName() << std::endl;
+  SetEnergyPoints(energy_points_ - 25);
+}

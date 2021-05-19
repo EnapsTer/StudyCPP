@@ -30,10 +30,10 @@ class NinjaTrap : virtual public  ClapTrap {
   void MeleeAttack(std::string const &target);
   void TakeDamage(unsigned int amount);
   void BeRepaired(unsigned int amount);
-  void NinjaShoebox(const ClapTrap &clap_trap);
-  void NinjaShoebox(const ScavTrap &scav_trap);
-  void NinjaShoebox(const FragTrap &frag_trap);
-  void NinjaShoebox(const NinjaTrap &ninja_trap);
+  virtual void NinjaShoebox(const ClapTrap &clap_trap);
+  virtual void NinjaShoebox(const ScavTrap &scav_trap);
+  virtual void NinjaShoebox(const FragTrap &frag_trap);
+  virtual void NinjaShoebox(const NinjaTrap &ninja_trap);
 
   const std::string &GetName() const;
   int GetMeleeAttackDamage() const;
