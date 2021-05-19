@@ -92,3 +92,58 @@ void NinjaTrap::NinjaShoebox(const NinjaTrap &ninja_trap) {
 	std::cout << "attack to CL4P-TP " << ninja_trap.GetName() << std::endl;
   SetEnergyPoints(energy_points_ - 25);
 }
+
+const std::string &NinjaTrap::GetName() const {
+  return name_;
+}
+
+int NinjaTrap::GetMeleeAttackDamage() const {
+  return melee_attack_damage_;
+}
+
+int NinjaTrap::GetRangedAttackDamage() const {
+  return ranged_attack_damage_;
+}
+
+int NinjaTrap::GetHitPoints() const {
+  return hit_points_;
+}
+
+int NinjaTrap::GetEnergyPoints() const {
+  return energy_points_;
+}
+
+int NinjaTrap::GetMaxHitPoints() const {
+  return max_hit_points_;
+}
+
+int NinjaTrap::GetMaxEnergyPoints() const {
+  return max_energy_points_;
+}
+
+int NinjaTrap::GetLevel() const {
+  return level_;
+}
+
+int NinjaTrap::GetArmorDamageReduction() const {
+  return armor_damage_reduction_;
+}
+
+void NinjaTrap::SetHitPoints(int hit_points) {
+  if (hit_points < 0)
+	hit_points_ = 0;
+  else if (hit_points > max_hit_points_)
+	hit_points_ = max_hit_points_;
+  else
+	hit_points_ = hit_points;
+}
+
+void NinjaTrap::SetEnergyPoints(int energy_points) {
+  if (energy_points < 0)
+	energy_points_ = 0;
+  else if (energy_points > max_energy_points_)
+	energy_points_ = max_energy_points_;
+  else
+	energy_points_ = energy_points;
+}
+
