@@ -42,18 +42,18 @@ void Pony::SetGender(const std::string &gender) {
 }
 
 Pony::~Pony() {
-  std::cout << "I " << name_ << " leaving from this world in my " << age_;
+  std::cout << "I am " << name_ << " leaving from this world in my " << age_;
   std::cout << std::endl;
 }
 
 void Pony::Eat() const {
-  std::cout << "I " << name_ << " eating some stuff" << std::endl;
+  std::cout << "I am " << name_ << " eating some stuff" << std::endl;
 }
 
 void Pony::Think() const {
-  std::cout << "I " << name_ << " thinking about death" << std::endl;
+  std::cout << "I am " << name_ << " thinking about death" << std::endl;
 }
 
 void Pony::Sleep() const {
-  std::cout << "I " << name_ << " fell asleep" << std::endl;
+  std::cout << "I am " << name_ << " fell asleep" << std::endl;
 }

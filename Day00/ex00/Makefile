@@ -17,7 +17,7 @@ CLANG_FLAGS = -Wall -Wextra -Werror
 #============================  MANDATORY COMMANDS  ============================#
 
 $(NAME):	$(OBJS)
-	$(CLANG) $(CLANG_FLAGS) $(OBJS) -o $(NAME)
+	$(CLANG) $(CLANG_FLAGS) $(OBJS) -o $(NAME) -std=c++98
 
 all:		$(NAME)
 

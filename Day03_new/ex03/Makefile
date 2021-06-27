@@ -1,9 +1,11 @@
-NAME		= phonebook
+NAME		= ex03
 ##################################sources#######################################
 
-SRC			=	main.cpp\
-				srcs/Contact.cpp\
-				srcs/PhoneBook.cpp
+SRC			=	ClapTrap.cpp\
+				ScavTrap.cpp\
+				FragTrap.cpp\
+				DiamondTrap.cpp\
+				main.cpp
 
 #####i################################objects###################################
 OBJ			= $(SRC:.cpp=.o)
@@ -14,10 +16,10 @@ SANITIZE	=	-fsanitize=address
 INC			=	includes
 
 %.o:	%.cpp
-	clang++ $(CLANG_FLAGS) -I$(INC) -c $< -o $(<:.cpp=.o)
+	clang++ $(CLANG_FLAGS) -c $< -o $(<:.cpp=.o)
 
-$(NAME):	$(OBJ)	$(INC)
-	clang++ $(CLANG_FLAGS) -I$(INC) $(OBJ) -o $(NAME)
+$(NAME):	$(OBJ)
+	clang++ $(CLANG_FLAGS) $(OBJ) -o $(NAME)
 
 all: $(NAME)
 

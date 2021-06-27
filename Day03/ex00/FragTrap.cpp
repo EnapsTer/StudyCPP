@@ -73,7 +73,7 @@ void FragTrap::VaulthunterDotExe(const std::string &target) {
   };
 
   if (energy_points_ == 0)
-	std::cout << "No energy(((" << std::endl;
+	std::cout << name_ << ": No energy(((" << std::endl;
   else
     std::cout << attacks[rand() % 5] << std::endl;
   SetEnergyPoints(energy_points_ - 25);
@@ -116,5 +116,3 @@ void FragTrap::SetEnergyPoints(int energy_points) {
   else
 	energy_points_ = energy_points;
 }
-
-

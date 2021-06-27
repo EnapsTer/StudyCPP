@@ -36,6 +36,8 @@ class ScavTrap {
   void SetHitPoints(int hit_points);
   void SetEnergyPoints(int energy_points);
   void ChallengeNewcomer();
+
+  void PrintHpAndEp();
 };
 
 #endif

@@ -15,11 +15,18 @@ std::string getFilename(char *argv) {
   return filename.str();
 }
 
-bool isValidArgs(int argc) {
+bool isValidArgs(int argc, char **argv) {
   if (argc != 4) {
     std::cout << "Invalid count of arguments" << std::endl;
 	return false;
   }
+  for (int i = 1; i < argc; i++) {
+    if (std::string(argv[i]).empty()) {
+	  std::cout << "Arguments contains empty string" << std::endl;
+	  return false;
+	}
+  }
+
   return true;
 }
 
@@ -35,20 +42,27 @@ std::string replaceStrToAnotherStr(
 }
 
 int main(int argc, char **argv) {
-  if (!isValidArgs(argc))
+  if (!isValidArgs(argc, argv))
     return 1;
-  std::ifstream in(argv[1]);
-  std::ofstream out;
   std::string s1(argv[2]);
   std::string s2(argv[3]);
 
-  out.open(getFilename(argv[1]));
+  std::ifstream in(argv[1], std::ios_base::in);
+  if (!in.is_open()) {
+   std::cout << "Can't open file" << std::endl;
+   return 1;
+  }
+
+  std::ofstream out(getFilename(argv[1]),
+					std::ios_base::trunc | std::ios_base::in);
   if (in.is_open()) {
     std::string str;
     while (getline(in, str)) {
       out << replaceStrToAnotherStr(str, s1, s2) << std::endl;
     }
   }
+  else
+	std::cout << "Can't open file" << std::endl;
   in.close();
   out.close();
   return 0;

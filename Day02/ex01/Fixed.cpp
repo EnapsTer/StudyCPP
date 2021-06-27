@@ -7,13 +7,13 @@
 #include <cmath>
 
 const int Fixed::bits_ = 8;
-
 Fixed::Fixed() : raw_bits_(0){
   std::cout << "Default constructor called" << std::endl;
 }
 
-Fixed::Fixed(const Fixed &other_) : raw_bits_(other_.raw_bits_) {
+Fixed::Fixed(const Fixed &other_){
   std::cout << "Copy constructor called" << std::endl;
+  *this = other_;
 }
 
 Fixed::~Fixed() {
@@ -32,14 +32,6 @@ int Fixed::getRawBits() const {
   std::cout << "getRawBits member function called" << std::endl;
   return raw_bits_;
 }
-
-/*
- * Принцип данного типа заключается в фиксированном сдвиге числа на N бит,
- * в результате чего дробное число можно представить целым
- * и оно будет иметь точность 2^N после точки
- * (1 << bits_) -> (1 << 8) -> 256
- * 8388607 - max value int
- */
 
 void Fixed::setRawBits(const int raw) {
   std::cout << "setRawBits member function called" << std::endl;
@@ -68,6 +60,3 @@ std::ostream &operator<<(std::ostream &out, Fixed const &object) {
   out << object.toFloat();
   return (out);
 }
-
-// Todo разобрать детальней этот номер
-// Todo refactor

@@ -76,7 +76,7 @@ void ScavTrap::ChallengeNewcomer() {
   };
 
   if (energy_points_ == 0)
-	std::cout << "No energy((" << std::endl;
+	std::cout << name_ <<  ": No energy((" << std::endl;
   else
 	std::cout << attacks[rand() % CHALLENGES_COUNT] << std::endl;
   SetEnergyPoints(energy_points_ - 25);
@@ -118,4 +118,13 @@ void ScavTrap::SetEnergyPoints(int energy_points) {
 	energy_points_ = max_energy_points_;
   else
 	energy_points_ = energy_points;
+}
+
+void ScavTrap::PrintHpAndEp() {
+  std::cout << "-----------------------------------------------" << std::endl;
+  std::cout << GetName() << " hit points: " << GetHitPoints() << std::endl;
+  std::cout << GetName() << " energy points: "
+			<< GetEnergyPoints() << std::endl;
+  std::cout << "-----------------------------------------------" << std::endl;
+
 }

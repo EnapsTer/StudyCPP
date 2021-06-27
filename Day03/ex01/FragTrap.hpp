@@ -36,6 +36,8 @@ class FragTrap {
   void TakeDamage(unsigned int amount);
   void BeRepaired(unsigned int amount);
   void VaulthunterDotExe(std::string const & target);
+
+  void PrintHpAndEp();
 };
 
 #endif
