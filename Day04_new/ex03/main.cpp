@@ -11,6 +11,7 @@
 #include "Character.hpp"
 
 int main() {
+  // TODO test leak
   IMateriaSource* src = new MateriaSource();
   src->LearnMateria(new Ice());
   src->LearnMateria(new Cure());
