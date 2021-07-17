@@ -48,7 +48,7 @@ void Bureaucrat::Downgrade() {
 Bureaucrat::~Bureaucrat() {}
 
 Bureaucrat::GradeTooHighException::GradeTooHighException() :
-          m_error_(std::string("Maximum grade 1")) {}
+          m_error_(std::string("Bureaucrat maximum grade 1")) {}
 
 const char *Bureaucrat::GradeTooHighException::what() const throw() {
   return (m_error_.c_str());
@@ -57,7 +57,7 @@ const char *Bureaucrat::GradeTooHighException::what() const throw() {
 Bureaucrat::GradeTooHighException::~GradeTooHighException() throw() {}
 
 Bureaucrat::GradeTooLowException::GradeTooLowException() :
-          m_error_(std::string("Minimum grade 150")) {}
+          m_error_(std::string("Bureaucrat minimum grade 150")) {}
 
 const char *Bureaucrat::GradeTooLowException::what() const throw() {
   return (m_error_.c_str());

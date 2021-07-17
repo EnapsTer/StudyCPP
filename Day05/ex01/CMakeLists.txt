@@ -5,4 +5,4 @@ set(CMAKE_CXX_STANDARD 98)
 
 include_directories(includes)
 
-add_executable(ex01  main.cpp)
+add_executable(ex01 main.cpp Bureaucrat.cpp Bureaucrat.hpp Form.cpp Form.hpp)
