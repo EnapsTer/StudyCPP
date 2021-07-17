@@ -47,6 +47,23 @@ void Bureaucrat::Downgrade() {
 
 Bureaucrat::~Bureaucrat() {}
 
+void Bureaucrat::SignForm(Form &form) {
+  if (form.IsASigned()) {
+    std::cout << "Form is already signed" << std::endl;
+	return;
+  }
+
+  try {
+    form.BeSigned(*this);
+    std::cout << name_ << " sign form " << form.GetName() << " with grade "
+    									<< grade_ << std::endl;
+  } catch (std::exception & e) {
+	std::cout << name_ << " can't sign " << form.GetName() << ", because "
+			  << e.what() << std::endl;
+  }
+}
+
+
 Bureaucrat::GradeTooHighException::GradeTooHighException() :
           m_error_(std::string("Bureaucrat maximum grade 1")) {}
 
@@ -70,3 +87,4 @@ std::ostream &operator << (std::ostream &out, const Bureaucrat &other) {
           << ". My grade is: " << other.GetGrade() << std::endl;
   return (out);
 }
+

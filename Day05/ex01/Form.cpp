@@ -47,7 +47,29 @@ Form::~Form() {}
 void Form::BeSigned(const Bureaucrat &bureaucrat) {
   if (bureaucrat.GetGrade() > sign_grade_)
     throw Form::GradeTooLowException(std::string("Too low grade for sign"));;
-
+  signed_ = true;
 }
 
+Form::GradeTooHighException::GradeTooHighException() :
+					m_error_(std::string("Form maximum grade 1")) {}
 
+Form::GradeTooHighException::~GradeTooHighException() throw() {}
+
+Form::GradeTooHighException::GradeTooHighException(const std::string &m_error) :
+					m_error_(m_error) {}
+
+const char *Form::GradeTooHighException::what() const throw() {
+  return m_error_.c_str();
+}
+
+Form::GradeTooLowException::GradeTooLowException() :
+					m_error_(std::string("Form minimum grade 150")) {}
+
+Form::GradeTooLowException::GradeTooLowException(const std::string &m_error) :
+					m_error_(m_error) {}
+
+Form::GradeTooLowException::~GradeTooLowException() throw() {}
+
+const char *Form::GradeTooLowException::what() const throw() {
+  return m_error_.c_str();
+}
