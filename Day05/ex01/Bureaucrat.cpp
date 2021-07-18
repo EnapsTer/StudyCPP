@@ -21,7 +21,9 @@ Bureaucrat::Bureaucrat(const Bureaucrat &other) :
 Bureaucrat &Bureaucrat::operator=(const Bureaucrat &other) {
   if (this == &other)
     return (*this);
-  *this = Bureaucrat(other);
+  std::string *name_p = const_cast<std::string *>(&name_);
+  *name_p = other.name_;
+  grade_ = other.grade_;
   return (*this);
 }
 

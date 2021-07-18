@@ -17,8 +17,9 @@ int main() {
 
   try {
     Bureaucrat b("Garik", 130);
-    Bureaucrat o = b;
-    std::cout << o;
+    Bureaucrat o("Stas", 13);
+    b = o;
+    std::cout << b;
   } catch (std::exception & e) {
     std::cerr << "Exception: " << e.what() << std::endl;
   }

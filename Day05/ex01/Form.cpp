@@ -38,7 +38,16 @@ Form::Form(const Form &other) :
 Form &Form::operator=(const Form &other) {
   if (this == &other)
     return *this;
-  *this = Form(other); // TODO спросить gdrive
+  std::string *name_p = const_cast<std::string *>(&name_);
+  *name_p = other.name_;
+
+  int *sign_grade_p = const_cast<int *>(&sign_grade_);
+  *sign_grade_p = other.sign_grade_;
+
+  int *execute_grade_p = const_cast<int *>(&execute_grade_);
+  *execute_grade_p = other.execute_grade_;
+
+  signed_ = other.signed_;
   return *this;
 }
 
@@ -72,4 +81,16 @@ Form::GradeTooLowException::~GradeTooLowException() throw() {}
 
 const char *Form::GradeTooLowException::what() const throw() {
   return m_error_.c_str();
+}
+
+std::ostream &operator << (std::ostream &out, const Form &other) {
+  out << "Form " << other.GetName();
+  if (other.IsASigned())
+    out << " is signed.";
+  else
+    out << " is not signed.";
+  out << " Required sign grade is " << other.GetSignGrade()
+      << ". Required execute grade is " << other.GetExecuteGrade();
+  out << std::endl;
+  return (out);
 }

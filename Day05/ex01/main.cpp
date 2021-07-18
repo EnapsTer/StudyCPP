@@ -26,16 +26,19 @@ int main() {
   try {
     Bureaucrat b("Stas", 4);
 	Form f("Country privacy contract", 1, 1);
+	std::cout << f;
 	b.SignForm(f);
 	for (int i = 0; i < 3; ++i)
       b.Upgrade();
 	b.SignForm(f);
+    std::cout << f;
   } catch (std::exception & e) {
     std::cerr << "Exception: " << e.what() << std::endl;
   }
 
   try {
 	Form f("Country privacy contract", 1123, 1);
+	std::cout << f;
   } catch (std::exception & e) {
     std::cerr << "Exception: " << e.what() << std::endl;
   }
