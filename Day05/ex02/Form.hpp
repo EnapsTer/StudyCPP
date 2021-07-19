@@ -18,24 +18,23 @@ class Form {
   const int sign_grade_;
   const int execute_grade_;
   std::string target_;
-  virtual void Action();
+  virtual void Action() const = 0;
  public:
 
   Form(std::string const &name, int sign_grade, int execute_grade);
-  Form(Form const &other);
   Form &operator=(Form const &other);
 
   virtual ~Form();
 
   const std::string &GetName() const;
   bool IsASigned() const;
-  const int GetSignGrade() const;
-  const int GetExecuteGrade() const;
+  int GetSignGrade() const;
+  int GetExecuteGrade() const;
   const std::string &GetTarget() const;
   void SetTarget(const std::string &target);
   void BeSigned(Bureaucrat const &bureaucrat);
 
-  void Execute(Bureaucrat const &executor);
+  void Execute(Bureaucrat const &executor) const;
 
   class GradeTooHighException : public std::exception {
    private:

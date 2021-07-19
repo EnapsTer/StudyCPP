@@ -3,10 +3,14 @@
 //
 
 #include "Bureaucrat.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "PresidentialPardonForm.hpp"
 #include <string>
 #include <iostream>
 
 int main() {
+  srand(time(0));
 
   try {
     Bureaucrat b("Garik", 190);
@@ -15,39 +19,66 @@ int main() {
     std::cerr << "Exception: " << e.what() << std::endl;
   }
 
+  std::cout << std::endl;
+
   try {
-    Bureaucrat b("Garik", 30);
-    Form f("Job contract", 100, 80);
-    b.SignForm(f);
+    Bureaucrat b("Garik", 120);
+    std::cout << b;
+    ShrubberyCreationForm form("Home");
+    b.SignForm(form);
+    b.ExecuteForm(form);
   } catch (std::exception & e) {
     std::cerr << "Exception: " << e.what() << std::endl;
   }
 
+  std::cout << std::endl;
+
   try {
-    Bureaucrat b("Stas", 4);
-	Form f("Country privacy contract", 1, 1);
-	std::cout << f;
-	b.SignForm(f);
-	for (int i = 0; i < 3; ++i)
-      b.Upgrade();
-	b.SignForm(f);
-    std::cout << f;
+    Bureaucrat b("Garik", 120);
+    std::cout << b;
+    ShrubberyCreationForm form("Home");
+    b.ExecuteForm(form);
   } catch (std::exception & e) {
     std::cerr << "Exception: " << e.what() << std::endl;
   }
 
+  std::cout << std::endl;
+
   try {
-	Form f("Country privacy contract", 1123, 1);
-	std::cout << f;
+    Bureaucrat b("Stas", 72);
+    std::cout << b;
+    RobotomyRequestForm form("Home");
+    b.SignForm(form);
+    b.ExecuteForm(form);
   } catch (std::exception & e) {
     std::cerr << "Exception: " << e.what() << std::endl;
   }
 
+  std::cout << std::endl;
+
   try {
-	Form f("Country privacy contract", 123, 0);
+    Bureaucrat b("Yarik", 20);
+    std::cout << b;
+    RobotomyRequestForm form("Apple");
+    b.SignForm(form);
+    b.ExecuteForm(form);
   } catch (std::exception & e) {
-	std::cerr << "Exception: " << e.what() << std::endl;
+    std::cerr << "Exception: " << e.what() << std::endl;
   }
+
+  std::cout << std::endl;
+
+  try {
+    Bureaucrat b("Vovka P", 1);
+    std::cout << b;
+    PresidentialPardonForm form("Vovka P");
+    b.SignForm(form);
+    b.ExecuteForm(form);
+  } catch (std::exception & e) {
+    std::cerr << "Exception: " << e.what() << std::endl;
+  }
+
+
 
   return 0;
 }

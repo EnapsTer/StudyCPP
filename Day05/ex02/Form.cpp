@@ -9,11 +9,11 @@ bool Form::IsASigned() const {
   return signed_;
 }
 
-const int Form::GetSignGrade() const {
+int Form::GetSignGrade() const {
   return sign_grade_;
 }
 
-const int Form::GetExecuteGrade() const {
+int Form::GetExecuteGrade() const {
   return execute_grade_;
 }
 
@@ -29,11 +29,6 @@ Form::Form(const std::string &name, int sign_grade, int execute_grade) :
   if (sign_grade_ < 1 || execute_grade_ < 1)
     throw Form::GradeTooHighException();
 }
-
-Form::Form(const Form &other) :
-            name_(other.name_), signed_(other.signed_),
-            sign_grade_(other.sign_grade_),
-            execute_grade_(other.execute_grade_) {}
 
 Form &Form::operator=(const Form &other) {
   if (this == &other)
@@ -59,7 +54,7 @@ void Form::BeSigned(const Bureaucrat &bureaucrat) {
   signed_ = true;
 }
 
-void Form::Execute(const Bureaucrat &executor) {
+void Form::Execute(const Bureaucrat &executor) const {
   if (!signed_)
 	throw Form::FormIsNotSigned();
   if (executor.GetGrade() > execute_grade_) {
@@ -67,7 +62,7 @@ void Form::Execute(const Bureaucrat &executor) {
 		std::string("Form not signed! Need more grade.")
 	);
   }
-
+  Action();
 }
 
 const std::string &Form::GetTarget() const {
@@ -77,8 +72,6 @@ const std::string &Form::GetTarget() const {
 void Form::SetTarget(const std::string &target) {
   target_ = target;
 }
-
-void Form::Action() {}
 
 Form::GradeTooHighException::GradeTooHighException() :
 					m_error_(std::string("Form maximum grade 1")) {}

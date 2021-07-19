@@ -1,9 +1,12 @@
-NAME		= ex01
+NAME		= ex02
 ##################################sources#######################################
 
 SRC			=	main.cpp\
 				Bureaucrat.cpp \
-				Form.cpp
+				Form.cpp \
+				PresidentialPardonForm.cpp\
+				RobotomyRequestForm.cpp\
+				ShrubberyCreationForm.cpp
 
 #####i################################objects###################################
 OBJ			= $(SRC:.cpp=.o)

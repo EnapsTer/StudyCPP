@@ -85,8 +85,8 @@ const char *Bureaucrat::GradeTooLowException::what() const throw() {
 Bureaucrat::GradeTooLowException::~GradeTooLowException() throw() {}
 
 std::ostream &operator << (std::ostream &out, const Bureaucrat &other) {
-  out << "My name is: " << other.GetName()
-          << ". My grade is: " << other.GetGrade() << std::endl;
+  out << "My name is " << other.GetName()
+          << ". My grade is " << other.GetGrade() << std::endl;
   return (out);
 }
 

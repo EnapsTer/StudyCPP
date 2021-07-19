@@ -9,9 +9,9 @@ Bureaucrat::Bureaucrat() {}
 Bureaucrat::Bureaucrat(const std::string &name, int grade) :
       name_(name) {
   if (grade < 1)
-    throw GradeTooHighException();
+    throw Bureaucrat::GradeTooHighException();
   if (grade > 150)
-    throw GradeTooLowException();
+    throw Bureaucrat::GradeTooLowException();
   grade_ = grade;
 }
 
@@ -65,6 +65,16 @@ void Bureaucrat::SignForm(Form &form) {
   }
 }
 
+void Bureaucrat::ExecuteForm(Form const &form) {
+  try {
+    form.Execute(*this);
+    std::cout << name_ << " executes form " << form.GetName() <<
+        " with grade " << grade_ << std::endl;
+  } catch (std::exception & e) {
+    std::cout << name_ << " can't execute form " << form.GetName() <<
+        " because of " << e.what() << std::endl;
+  }
+}
 
 Bureaucrat::GradeTooHighException::GradeTooHighException() :
           m_error_(std::string("Bureaucrat maximum grade 1")) {}
@@ -85,8 +95,8 @@ const char *Bureaucrat::GradeTooLowException::what() const throw() {
 Bureaucrat::GradeTooLowException::~GradeTooLowException() throw() {}
 
 std::ostream &operator << (std::ostream &out, const Bureaucrat &other) {
-  out << "My name is: " << other.GetName()
-          << ". My grade is: " << other.GetGrade() << std::endl;
+  out << "My name is " << other.GetName()
+          << ". My grade is " << other.GetGrade() << std::endl;
   return (out);
 }
 
