@@ -21,6 +21,7 @@ class Converter {
   ConverterToType **types_;
 
   void InitializeTypes();
+  static bool haveUppercaseLetter(std::string const &str);
  public:
 
   Converter(std::string const &value);

@@ -11,11 +11,11 @@
 #include "ConvertToDouble.hpp"
 
 Converter::Converter(const std::string &value) {
-  if (value.length() == 0)
-    impossible_ = true;
-
   if (value.length() == 3 && value[0] == '\'' && value[2] == '\'') {
     value_ = static_cast<double>(value[1]);
+  }
+  else if (value.length() == 0 || haveUppercaseLetter(value)) {
+    impossible_ = true;
   }
   else {
     char *end_ptr = NULL;
@@ -62,6 +62,14 @@ void Converter::PrintConvertedToAllTypes() const {
   for (int i = 0; i < TYPES_COUNT; ++i) {
     std::cout << types_[i]->GetPrintableType() << std::endl;
   }
+}
+
+bool Converter::haveUppercaseLetter(const std::string &str) {
+  for (int i = 0; i < str.length(); ++i) {
+    if (isupper(str[i]))
+      return true;
+  }
+  return false;
 }
 
 
