@@ -4,7 +4,6 @@
 
 #include <iostream>
 #include <Converter.hpp>
-#include <typeinfo>
 
 int main(int argc, char **argv) {
   if (argc != 2) {
