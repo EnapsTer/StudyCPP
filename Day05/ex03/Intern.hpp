@@ -26,8 +26,6 @@ class Intern {
  public:
    Intern();
    virtual ~Intern();
-   Intern(Intern const &other);
-   Intern &operator=(Intern const &other);
 
    Form *MakeForm(std::string const &name, std::string const &target);
 

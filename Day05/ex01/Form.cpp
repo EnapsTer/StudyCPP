@@ -9,11 +9,11 @@ bool Form::IsASigned() const {
   return signed_;
 }
 
-const int Form::GetSignGrade() const {
+int Form::GetSignGrade() const {
   return sign_grade_;
 }
 
-const int Form::GetExecuteGrade() const {
+int Form::GetExecuteGrade() const {
   return execute_grade_;
 }
 

@@ -22,6 +22,7 @@ int main() {
     std::cout << b;
     b.SignForm(*form);
     b.ExecuteForm(*form);
+	delete form;
   } catch (std::exception & e) {
     std::cerr << "Exception: " << e.what() << std::endl;
   }
@@ -31,6 +32,7 @@ int main() {
   try {
     Form *form = intern.MakeForm("form", "home");
     std::cout << *form;
+	delete form;
   } catch (std::exception & e) {
     std::cerr << "Exception: " << e.what() << std::endl;
   }
@@ -44,6 +46,7 @@ int main() {
     std::cout << b;
     b.SignForm(*form);
     b.ExecuteForm(*form);
+	delete form;
   } catch (std::exception & e) {
     std::cerr << "Exception: " << e.what() << std::endl;
   }
@@ -57,6 +60,7 @@ int main() {
     std::cout << b;
     b.SignForm(*form);
     b.ExecuteForm(*form);
+    delete form;
   } catch (std::exception & e) {
     std::cerr << "Exception: " << e.what() << std::endl;
   }
@@ -70,6 +74,7 @@ int main() {
     std::cout << b;
     b.SignForm(*form);
     b.ExecuteForm(*form);
+	delete form;
   } catch (std::exception & e) {
     std::cerr << "Exception: " << e.what() << std::endl;
   }

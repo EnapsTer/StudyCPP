@@ -43,12 +43,6 @@ Form *Intern::GetNewPresidentialPardonForm(const std::string &target) {
 
 Intern::~Intern() {}
 
-Intern::Intern(const Intern &other) {}
-
-Intern &Intern::operator=(const Intern &other) {
-  return *this;
-}
-
 Form *Intern::MakeForm(const std::string &name, const std::string &target) {
   for (int i = 0; i < FORMS_COUNT; ++i) {
     if (name == form_names_[i]) {

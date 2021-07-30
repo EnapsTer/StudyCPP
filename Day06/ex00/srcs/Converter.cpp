@@ -28,7 +28,6 @@ Converter::Converter(const std::string &value) {
       impossible_ = false;
   }
 
-  // TODO check for NAn NaN
   InitializeTypes();
 }
 
@@ -65,7 +64,7 @@ void Converter::PrintConvertedToAllTypes() const {
 }
 
 bool Converter::haveUppercaseLetter(const std::string &str) {
-  for (int i = 0; i < str.length(); ++i) {
+  for (unsigned int i = 0; i < str.length(); ++i) {
     if (isupper(str[i]))
       return true;
   }

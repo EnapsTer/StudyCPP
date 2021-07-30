@@ -24,7 +24,7 @@ Data* deserialize(uintptr_t raw) {
 }
 
 
-int main(int argc, char **argv) {
+int main() {
   Data *data = new Data;
   data->name = "Gref";
   data->age = 57;

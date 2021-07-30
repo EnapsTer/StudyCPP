@@ -9,13 +9,12 @@ OBJ			= $(SRC:.cpp=.o)
 CLANG_FLAGS	=	-Wall -Wextra -Werror
 SANITIZE	=	-fsanitize=address
 #####################################headers####################################
-INC			=	includes
 
 %.o:	%.cpp
-	clang++ $(CLANG_FLAGS) -I$(INC) -c $< -o $(<:.cpp=.o)
+	clang++ $(CLANG_FLAGS) -c $< -o $(<:.cpp=.o)
 
 $(NAME):	$(OBJ)	$(INC)
-	clang++ $(CLANG_FLAGS) -I$(INC) $(OBJ) -o $(NAME)
+	clang++ $(CLANG_FLAGS) $(OBJ) -o $(NAME)
 
 all: $(NAME)
 
