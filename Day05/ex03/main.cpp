@@ -68,6 +68,20 @@ int main() {
   std::cout << std::endl;
 
   try {
+    Form *form = intern.MakeForm("robotomy request", "peach");
+    std::cout << *form;
+    Bureaucrat b("Yarik", 45);
+    std::cout << b;
+    b.SignForm(*form);
+    b.ExecuteForm(*form);
+    delete form;
+  } catch (std::exception & e) {
+    std::cerr << "Exception: " << e.what() << std::endl;
+  }
+
+  std::cout << std::endl;
+
+  try {
     Form *form = intern.MakeForm("presidential pardon", "VVP");
     std::cout << *form;
     Bureaucrat b("VVP", 2);
