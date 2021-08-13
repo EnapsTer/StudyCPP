@@ -14,7 +14,8 @@ Converter::Converter(const std::string &value) {
   if (value.length() == 3 && value[0] == '\'' && value[2] == '\'') {
     value_ = static_cast<double>(value[1]);
   }
-  else if (value.length() == 0 || haveUppercaseLetter(value)) {
+  else if (value.length() == 0 || haveUppercaseLetter(value)
+  		|| value == "-nanf" || value == "-nan") {
     impossible_ = true;
   }
   else {
