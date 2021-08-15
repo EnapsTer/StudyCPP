@@ -48,7 +48,7 @@ void identify(Base& p) {
     std::cout << "type is C" << std::endl;
 }
 
-int main(int argc, char **argv) {
+int main() {
   srand(time(0));
   Base *base = generate();
   std::cout << "identify use pointer" << std::endl;

@@ -13,7 +13,7 @@ void print_elem(T &elem) {
 }
 
 template <typename T>
-void iter(T *array, int length, void (*function)(T &)) {
+void iter(T *array, int length, void (*function)(T const &)) {
   for (int i = 0; i < length; ++i)
     function(array[i]);
 }

@@ -42,8 +42,7 @@ class Array {
   Array &operator=(Array const &other){
     if (this == &other)
       return *this;
-    if (data_)
-      delete[] data_;
+	delete[] data_;
 
     size_ = 0;
     try {
@@ -58,7 +57,6 @@ class Array {
   }
 
   virtual ~Array() {
-    if (data_)
       delete []data_;
   }
 
