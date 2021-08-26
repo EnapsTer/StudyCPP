@@ -20,11 +20,14 @@ template <typename T>
        const_reverse_iterator;
 
    MutantStack() : std::stack<T>() {}
+
    MutantStack(MutantStack const &other) : std::stack<T>(other) {}
+
    MutantStack &operator=(MutantStack const &other) {
-     std::stack<T>::operator=();
+     std::stack<T>::operator=(other);
      return *this;
    }
+
    virtual ~MutantStack() {}
 
    iterator begin() {

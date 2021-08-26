@@ -20,7 +20,7 @@ int main() {
     std::cout << "Find 1. Answer: " << *Easyfind(list, 1) << std::endl;
     std::cout << "Find 5. Answer: " << *Easyfind(list, 5) << std::endl;
   } catch (std::exception & e) {
-    std::cerr << "Exception: " << e.what();
+    std::cerr << "Exception: " << e.what() << std::endl;
   }
 
   std::cout << std::endl;
@@ -37,7 +37,7 @@ int main() {
     std::cout << "Find 1. Answer: " << *Easyfind(list, 2) << std::endl;
     std::cout << "Find 123. Answer: " << *Easyfind(list, 123) << std::endl;
   } catch (std::exception & e) {
-    std::cerr << "Exception: " << e.what();
+    std::cerr << "Exception: " << e.what() << std::endl;
   }
 
 }

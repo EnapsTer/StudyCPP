@@ -30,7 +30,7 @@ int Span::ShortestSpan() {
   if (multiset_.size() <= 1)
     throw SpanException("Not valid storage");
   std::multiset<int>::iterator iter1 = multiset_.begin();
-  std::multiset<int>::iterator iter2= multiset_.begin();
+  std::multiset<int>::iterator iter2 = multiset_.begin();
   iter2++;
   int shortest = LongestSpan();
   for (; iter2 != multiset_.end(); ++iter1, ++iter2) {
